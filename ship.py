@@ -3,8 +3,11 @@ import pygame as pg
 
 class Ship():
 
-    def __init__(self, screen):
+    def __init__(self, screen, ai_settings):
         self.screen = screen
+        self.ai_settings = ai_settings
+
+        self.center = float(self.rect.centerx)
 
         self.image = pg.image.load('imgs/alienblaster.png')
         self.rect = self.image.get_rect()
@@ -18,9 +21,11 @@ class Ship():
 
     def update(self):
         if self.moving_right:
-            self.rect.centerx += 1
+            self.center += self.ai_settings.ship_speed_factor
         if self.moving_left:
-            self.rect.centerx +=1
+            self.center -= self.ai_settings.ship_speed_factor
+
+        self.rect.centerx = self.center
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)

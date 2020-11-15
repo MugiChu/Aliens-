@@ -13,7 +13,7 @@ def run_game():
     ))
     pg.display.set_caption("Alien Invasion")
 
-    ship = Ship(screen)
+    ship = Ship(screen, ai_settings)
 
     while True:
         gf.check_events(ship)
