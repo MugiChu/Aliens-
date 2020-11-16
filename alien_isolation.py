@@ -15,15 +15,15 @@ def run_game():
     ))
     pg.display.set_caption("Alien Invasion")
 
+    alien = Alien(ai_settings, screen)
     ship = Ship(screen, ai_settings)
     bullets = Group()
-    alien = Alien(ai_settings, screen)
 
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings, screen, ship, bullets, alien)
+        gf.update_screen(ai_settings, screen, alien, ship, bullets)
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 sys.exit()

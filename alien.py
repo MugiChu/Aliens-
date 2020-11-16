@@ -9,7 +9,7 @@ class Alien(Sprite):
         self.screen = screen
         self.ai_settings = ai_settings
 
-        self.image = pg.image.load("imgs/alien.png")
+        self.image = pg.image.load('imgs/alien.png')
         self.rect = self.image.get_rect()
 
         self.rect.x = self.rect.width
