@@ -52,7 +52,7 @@ def update_bullets(bullets):
 
 def update_screen(ai_settings, screen, ship, bullets, alien):
     screen.fill(ai_settings.bg_color)
-    for bullet in bullets.sprites():
+    for bullet in bullets:
         bullet.draw_bullet()
     ship.blitme()
     alien.blitme()
